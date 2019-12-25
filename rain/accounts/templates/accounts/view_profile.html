@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+<style>
+.card{ 
+    margin: 0 auto;
+}
+.prof{
+    text-align: center;
+    display: inline;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<div class="card border-dark mb3" style="width: 25em;">
+        <div class="card-header" style="background-color:black;color:white"><h1 style="text-align:center">Profile</h1></div>
+        <br>
+        <div class="prof" style="padding:20px">
+        <img src="{{ post.image.url }}" width="280px">
+        <br>
+        <br>
+        <p>Username:{{ post.user.username }}</p>
+        <p>First Name: {{ post.user.first_name }}</p>
+        <p>Last Name: {{ post.user.last_name }}</p>
+        <p>Email: {{ post.user.email }}</p>
+        <p>Desciption: {{ post.description }}</p>
+        <p>Phone: {{ post.phone }}</p>
+        <p>Website: {{ post.website }}</p>
+        <p>City: {{ post.city }}</p>
+        </div>
+{% endblock %}

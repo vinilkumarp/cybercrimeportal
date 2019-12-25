@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+<style>
+.card{ 
+    margin: 0 auto;
+}
+.prof{
+    text-align: center;
+    display: inline;
+}
+#mainNav {
+  padding-top: 0;
+    padding-bottom: 0;
+    background-color: #212529;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/">Cyber Security</a>
+      <ul class="navbar-nav text-uppercase ml-auto">
+        <li class="nav-item">
+            <a class="nav-link " href='/complaints/view'>Complaints</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href='/complaints/feedbacks'>View Feedbacks</a>
+        </li>
+		<li class="nav-item">
+            <a class="nav-link " href='/account/logout'>Logout</a>
+        </li>
+		
+        </ul>
+</nav>
+<div class="card border-dark mb3" style="width: 25em;">
+        <div class="card-header" style="background-color:black;color:white"><h1 style="text-align:center">Profile</h1></div>
+        <br>
+        <div class="prof" style="padding:20px">
+        {% if user.userprofile.image %}
+          <img src="{{ user.userprofile.image.url }}" width="280px">
+        {% endif %}
+        <br>
+        <br>
+        <p>Username:{{ user.username }}</p>
+        <p>First Name: {{ user.first_name }}</p>
+        <p>Last Name: {{ user.last_name }}</p>
+        <p>Email: {{ user.email }}</p>
+        <p>Desciption: {{ user.userprofile.description }}</p>
+        <p>Phone: {{ user.userprofile.phone }}</p>
+        <p>Website: {{ user.userprofile.website }}</p>
+        <p>City: {{ user.userprofile.city }}</p>
+        </div>
+{% endblock %}

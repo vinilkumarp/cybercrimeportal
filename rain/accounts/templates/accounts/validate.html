@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head %}
+
+<title>Validate</title>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<style>
+        #mainNav {
+  padding-top: 0;
+    padding-bottom: 0;
+    background-color: #212529;
+}
+    </style>>
+
+{% endblock %}
+
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="#">Cyber Security</a>
+</nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div style="position: relative;left: 200px;">
+        
+            <form action="?" method="POST">
+                {% csrf_token %}
+
+              <div class="g-recaptcha" data-sitekey="6Ldc-sgUAAAAAKjyxxuHffONX181Bq0SxMCRu1g-"></div>
+              <br/>
+              <input type="submit" value="Submit">
+            </form>
+    </div>
+
+    {% endblock %}

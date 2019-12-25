@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {% load static %}
+    <style>
+        #mainNav {
+  padding-top: 0;
+    padding-bottom: 0;
+    background-color: #212529;
+}
+    h1 {
+        text-align: center;
+    }
+    </style>>
+{% endblock %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/">Cyber Security</a>
+      <ul class="navbar-nav text-uppercase ml-auto">
+        <li class="nav-item">
+            <a class="nav-link " href='/complaints/view'>Complaints</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link " href='/complaints/feedbacks'>View Feedbacks</a>
+        </li>
+		<li class="nav-item">
+            <a class="nav-link " href='/account/logout'>Logout</a>
+        </li>
+		
+        </ul>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="row" style="margin-left:30px">
+{% for post in posts %}
+	<div class="card col-lg-3 text-center" style="width: 18rem;margin:20px">
+		<img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+		<div class="card-body">
+			<h5 class="card-title">{{ post.user.username }}</h5>
+			<p class="card-text">{{ post.description }}</p>
+			<a href="{{ post.get_absolute_url }}" class="btn btn-primary">View More</a>
+		</div>
+	</div>
+{% endfor %}
+
+</div>
+{% endblock %}
